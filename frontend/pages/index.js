@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Link from 'next/link'
+
 export default function Home() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -45,7 +47,7 @@ export default function Home() {
           <ul>
             {users.map((user) => (
               <li key={user.id}>
-                {user.name} - {user.role}
+                <Link href={{ pathname: '/user', query:{id:user.id}}}>{user.name}</Link> - {user.role} 
               </li>
             ))}
           </ul>
